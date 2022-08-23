@@ -9,4 +9,6 @@ class Post extends Model
    public $fillable=[
     "name","slug","content"
    ];
+
+  
 }
