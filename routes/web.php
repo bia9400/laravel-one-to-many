@@ -28,7 +28,9 @@ Route::middleware("auth")
     Route::get('/', 'HomeController@index')->name('index');
     Route::get('/test', 'HomeController@test')->name('test');
     
-
+ Route::resource("users", "UserController");
     Route::resource("posts", "PostController");
+   
+
   });
 
