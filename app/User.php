@@ -21,6 +21,9 @@ class User extends Authenticatable
     public function userDetail(){
       return $this->hasOne("App/UserDetail");
     }
+    public function post(){
+        return $this->hasMany("App/Post");
+      }
     /**
      * The attributes that should be hidden for arrays.
      *
