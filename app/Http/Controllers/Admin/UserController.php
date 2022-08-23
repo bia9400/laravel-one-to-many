@@ -19,7 +19,11 @@ class UserController extends Controller
     }
     public function show($id){
         $user=User::findOrFail($id);
-        return view("admin.users.show", compact("user"));
+        $userDetails=$user->userDetail;
+        return view("admin.users.show", [
+            "user"=>$user,
+            "userDetail"=>$userDetails
+        ]);
     }
     public function edit($id){
         $user=User::findOrFail($id);

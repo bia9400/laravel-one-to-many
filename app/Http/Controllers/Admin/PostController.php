@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -16,6 +18,8 @@ class PostController extends Controller
     public function index()
     {
         $posts=Post::all();
+    
+        
         return view("admin.posts.index", compact("posts"));
     }
 
@@ -42,9 +46,10 @@ class PostController extends Controller
             "name"=>"required|min:8",
             "content"=>"required|min:15",
             "slug"=>"nullable",
- 
+            
         ]);
         $post=new Post();
+        $post->user_id = Auth::user()->id;
         $post->fill($data);
         $post->save();
         return redirect()->route("admin.posts.show",$post->id);

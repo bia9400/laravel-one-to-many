@@ -10,6 +10,8 @@
                 <div class="col">
 
                     <div class="card-body mb-5 bg-info">
+                        
+                        <h2>Autore Post: {{$post->user ? $post->user->name : ""}}</h2>
                         <h5 class="card-title">{{ $post->name }}</h5>
                         <p class="card-text">{{ $post->content }}</p>
                         <a class="btn btn-primary" href="{{ route('admin.posts.show', $post->id) }}">Dettagli</a>
