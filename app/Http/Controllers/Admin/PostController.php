@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -14,7 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts=Post::all();
+        return view("admin.posts.index", compact("posts"));
     }
 
     /**
@@ -24,7 +26,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        
+        return view("admin.posts.create");
     }
 
     /**
@@ -35,7 +38,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=$request->validate([
+            "name"=>"required|min:8",
+            "content"=>"required|min:15",
+            "slug"=>"nullable",
+ 
+        ]);
+        $post=new Post();
+        $post->fill($data);
+        $post->save();
+        return redirect()->route("admin.posts.show",$post->id);
+        
     }
 
     /**
@@ -46,7 +59,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post=Post::findOrFail($id);
+        return view("admin.posts.show",compact("post"));
     }
 
     /**
