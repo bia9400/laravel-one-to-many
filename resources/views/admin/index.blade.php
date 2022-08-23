@@ -21,6 +21,12 @@
                 </div>
             </div>
         </div>
+
+    </div>
+    <div class="row">
+        <div class="col bg-danger text-center m-5 py-3 px-3"><a href="{{route("admin.posts.index")}}">Posts</a></div>
+        <div class="col bg-danger text-center m-5 py-3 px-3"><a href="{{route("admin.users.index")}}">Users</a></div>
+
     </div>
 </div>
 @endsection
