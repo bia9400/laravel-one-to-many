@@ -28,5 +28,8 @@
                 </div>
             @endforeach
         </div>
+        <div class="text-center mb-5">
+            <a class="btn btn-primary" href="{{ route('admin.index') }}">Indietro</a>
+        </div>
     </div>
 @endsection

@@ -8,7 +8,8 @@
         <div class="row row-cols-3">
             @foreach ($users as $user)
                 <div class="col">
-
+                
+                    
                     <div class="card-body mb-5 bg-info">
                         <h5 class="card-title">{{ $user->name }}</h5>
                         <p class="card-text">{{ $user->email }}</p>
@@ -25,6 +26,9 @@
                    
                 </div>
             @endforeach
+        </div>
+        <div class="text-center mb-5">
+            <a class="btn btn-primary" href="{{ route('admin.index') }}">Indietro</a>
         </div>
     </div>
 @endsection
